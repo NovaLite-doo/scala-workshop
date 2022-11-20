@@ -1,5 +1,6 @@
-
-
+/**
+ * Using pattern matching create function that will greet each user type differently
+ */
 object Task3 extends App {
   val users = Seq(
     User.Guest(),
