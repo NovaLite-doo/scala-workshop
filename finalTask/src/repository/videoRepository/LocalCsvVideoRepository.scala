@@ -11,11 +11,9 @@ class LocalCsvVideoRepository(file: File) extends VideoRepository {
 
   private implicit val csvFormat: CSVFormat = new DefaultCSVFormat {}
 
-
   override def getAllVideos: Future[Seq[Video]] = Future.fromTry {
     Using(CSVReader.open(file)) { reader =>
-      reader
-        .iteratorWithHeaders
+      reader.iteratorWithHeaders
         .map(Video.fromMap)
         .toSeq
     }

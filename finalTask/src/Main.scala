@@ -9,10 +9,15 @@ import scala.concurrent.{Await, ExecutionContext}
 object Main extends App {
   implicit val ec: ExecutionContext = ExecutionContext.global
 
-  val categoryRepository = new LocalJsonCategoryRepository(new File(getClass.getClassLoader.getResource("categories.json").toURI))
-  val videoRepository = new LocalCsvVideoRepository(new File(getClass.getClassLoader.getResource("videos.csv").toURI))
+  val categoryRepository = new LocalJsonCategoryRepository(
+    new File(getClass.getClassLoader.getResource("categories.json").toURI)
+  )
+  val videoRepository = new LocalCsvVideoRepository(
+    new File(getClass.getClassLoader.getResource("videos.csv").toURI)
+  )
 
-  val statisticsService = new StatisticsServiceTaskSolved(categoryRepository, videoRepository)
+  val statisticsService =
+    new StatisticsServiceTaskSolved(categoryRepository, videoRepository)
 
   Await.result(
     for {
@@ -20,15 +25,22 @@ object Main extends App {
       Some(videoWithLeastViews) <- statisticsService.videoWithLeastViews
       Some(categoryWithMostViews) <- statisticsService.categoryWithMostViews
       Some(categoryWithLeastViews) <- statisticsService.categoryWithLeastViews
-      channelWithMostViewsForEachCategory <- statisticsService.channelWithMostViewsForEachCategory
+      channelWithMostViewsForEachCategory <-
+        statisticsService.channelWithMostViewsForEachCategory
     } yield {
       println(s"Video with most views is: '${videoWithMostViews.title}'")
       println(s"Video with least views is: '${videoWithLeastViews.title}'")
-      println(s"Category with most views is: '${categoryWithMostViews.snippet.title}'")
-      println(s"Category with least views is: '${categoryWithLeastViews.snippet.title}'")
-      channelWithMostViewsForEachCategory.foreach{
+      println(
+        s"Category with most views is: '${categoryWithMostViews.snippet.title}'"
+      )
+      println(
+        s"Category with least views is: '${categoryWithLeastViews.snippet.title}'"
+      )
+      channelWithMostViewsForEachCategory.foreach {
         case (category, Some(channelTitle)) =>
-          println(s"'$channelTitle' is most popular channel for category '${category.snippet.title}'")
+          println(
+            s"'$channelTitle' is most popular channel for category '${category.snippet.title}'"
+          )
         case (category, None) =>
           println(s"There is no data for category '${category.snippet.title}'")
       }

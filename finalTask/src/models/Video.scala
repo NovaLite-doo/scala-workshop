@@ -4,18 +4,18 @@ import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
 
 case class Video(
-                  videoId: String,
-                  title: String,
-                  channelTitle: String,
-                  categoryId: Long,
-                  tags: Seq[String],
-                  views: Long,
-                  likes: Long,
-                  dislikes: Long,
-                  commentTotal: Long,
-                  thumbnailLink: String,
-                  date: DateTime
-                )
+    videoId: String,
+    title: String,
+    channelTitle: String,
+    categoryId: Long,
+    tags: Seq[String],
+    views: Long,
+    likes: Long,
+    dislikes: Long,
+    commentTotal: Long,
+    thumbnailLink: String,
+    date: DateTime
+)
 
 object Video {
   private val dateFormat = DateTimeFormat.forPattern("dd.MM")

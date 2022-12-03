@@ -6,7 +6,11 @@ import repository.videoRepository.VideoRepository
 
 import scala.concurrent.{ExecutionContext, Future}
 
-class StatisticsServiceTask(categoryRepository: CategoryRepository, videoRepository: VideoRepository)(implicit ec: ExecutionContext) extends StatisticsService {
+class StatisticsServiceTask(
+    categoryRepository: CategoryRepository,
+    videoRepository: VideoRepository
+)(implicit ec: ExecutionContext)
+    extends StatisticsService {
   override def videoWithMostViews: Future[Option[Video]] = ???
 
   override def videoWithLeastViews: Future[Option[Video]] = ???
@@ -15,5 +19,6 @@ class StatisticsServiceTask(categoryRepository: CategoryRepository, videoReposit
 
   override def categoryWithLeastViews: Future[Option[Category]] = ???
 
-  override def channelWithMostViewsForEachCategory: Future[Map[Category, Option[String]]] = ???
+  override def channelWithMostViewsForEachCategory
+      : Future[Map[Category, Option[String]]] = ???
 }
