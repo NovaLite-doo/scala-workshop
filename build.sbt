@@ -21,8 +21,14 @@ lazy val task3 = (project in file("./task3"))
     setScalaSource
   )
 
+lazy val task4 = (project in file("./task4"))
+  .settings(
+    name := "task4",
+    setScalaSource
+  )
+
 lazy val root = (project in file("."))
   .settings(
     name := "scala-workshop-2022"
   )
-  .aggregate(task1, task2, task3)
+  .aggregate(task1, task2, task3, task4)
