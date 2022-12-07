@@ -10,10 +10,10 @@ import java.io.File
 class StatisticsServiceTaskSpec extends AsyncWordSpec with Matchers {
 
   val categoryRepository = new LocalJsonCategoryRepository(
-    new File(getClass.getClassLoader.getResource("categories.json").toURI)
+    getClass.getClassLoader.getResourceAsStream("categories.json")
   )
   val videoRepository = new LocalCsvVideoRepository(
-    new File(getClass.getClassLoader.getResource("videos.csv").toURI)
+    getClass.getClassLoader.getResourceAsStream("videos.csv")
   )
 
   val statisticsService =

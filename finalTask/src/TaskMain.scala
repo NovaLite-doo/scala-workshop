@@ -1,8 +1,7 @@
 import repository.categoryRepository.LocalJsonCategoryRepository
 import repository.videoRepository.LocalCsvVideoRepository
-import services.{StatisticsServiceTask, StatisticsServiceTaskSolved}
+import services.StatisticsServiceTask
 
-import java.io.File
 import scala.concurrent.duration.DurationInt
 import scala.concurrent.{Await, ExecutionContext}
 
@@ -13,10 +12,10 @@ object TaskMain extends App {
   implicit val ec: ExecutionContext = ExecutionContext.global
 
   val categoryRepository = new LocalJsonCategoryRepository(
-    new File(getClass.getClassLoader.getResource("categories.json").toURI)
+    getClass.getClassLoader.getResourceAsStream("categories.json")
   )
   val videoRepository = new LocalCsvVideoRepository(
-    new File(getClass.getClassLoader.getResource("videos.csv").toURI)
+    getClass.getClassLoader.getResourceAsStream("videos.csv")
   )
 
   val statisticsService =

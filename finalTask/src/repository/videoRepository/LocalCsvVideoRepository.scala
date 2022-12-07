@@ -3,16 +3,18 @@ package repository.videoRepository
 import com.github.tototoshi.csv.{CSVFormat, CSVReader, DefaultCSVFormat}
 import models.Video
 
-import java.io.File
+import java.io.InputStream
 import scala.concurrent.Future
+import scala.io.Source
 import scala.util.Using
 
-class LocalCsvVideoRepository(file: File) extends VideoRepository {
+class LocalCsvVideoRepository(makeInputStream: => InputStream)
+    extends VideoRepository {
 
   private implicit val csvFormat: CSVFormat = new DefaultCSVFormat {}
 
   override def getAllVideos: Future[Seq[Video]] = Future.fromTry {
-    Using(CSVReader.open(file)) { reader =>
+    Using(CSVReader.open(Source.fromInputStream(makeInputStream))) { reader =>
       reader.iteratorWithHeaders
         .map(Video.fromMap)
         .toSeq

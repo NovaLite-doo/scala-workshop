@@ -13,12 +13,10 @@ object SolvedTaskMain extends App {
   implicit val ec: ExecutionContext = ExecutionContext.global
 
   val categoryRepository = new LocalJsonCategoryRepository(
-    new File(
-      getClass.getClassLoader.getResource("categories.json").toURI
-    )
+    getClass.getClassLoader.getResourceAsStream("categories.json")
   )
   val videoRepository = new LocalCsvVideoRepository(
-    new File(getClass.getClassLoader.getResource("videos.csv").toURI)
+    getClass.getClassLoader.getResourceAsStream("videos.csv")
   )
 
   val statisticsService =
