@@ -1,12 +1,15 @@
 import repository.categoryRepository.LocalJsonCategoryRepository
 import repository.videoRepository.LocalCsvVideoRepository
-import services.StatisticsServiceTaskSolved
+import services.{StatisticsServiceTask, StatisticsServiceTaskSolved}
 
 import java.io.File
 import scala.concurrent.duration.DurationInt
 import scala.concurrent.{Await, ExecutionContext}
 
-object Main extends App {
+/** Implement methods in StatisticsServiceTask class so tests in
+  * StatisticsServiceTaskSpec class pass.
+  */
+object TaskMain extends App {
   implicit val ec: ExecutionContext = ExecutionContext.global
 
   val categoryRepository = new LocalJsonCategoryRepository(
@@ -17,7 +20,7 @@ object Main extends App {
   )
 
   val statisticsService =
-    new StatisticsServiceTaskSolved(categoryRepository, videoRepository)
+    new StatisticsServiceTask(categoryRepository, videoRepository)
 
   Await.result(
     for {
