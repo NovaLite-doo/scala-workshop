@@ -4,6 +4,7 @@ package tasks.task2
   */
 object Task2 extends App {
   val text: String = "this is a simple text."
-  val textWithFirstLettersCapitalized: String = ???
+  val textWithFirstLettersCapitalized: String =
+    text.split(' ').map(_.capitalize).mkString(" ")
   println(textWithFirstLettersCapitalized)
 }

@@ -16,7 +16,13 @@ object Task7 extends App {
     Thread.sleep(500)
     List('a', 'b', 'c')
   }
-  val combinations: Future[List[String]] = ???
+  val combinations: Future[List[String]] = for {
+    numbersList <- numbers
+    lettersList <- letters
+  } yield lettersList.flatMap(letter =>
+    numbersList.map(number => s"$letter$number")
+  )
+
   println(combinations)
   Await.result(combinations.map(println), 1.minute)
 }

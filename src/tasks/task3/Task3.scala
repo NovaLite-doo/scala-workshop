@@ -4,6 +4,6 @@ package tasks.task3
   */
 object Task3 extends App {
   val strings = List("1", "2", "123", "1a", "20", "asd")
-  val numbers = ???
+  val numbers = strings.flatMap(_.toIntOption)
   println(numbers)
 }

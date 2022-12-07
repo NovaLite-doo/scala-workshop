@@ -12,7 +12,8 @@ object Task4 extends App {
     User("James", "Matthews", 30)
   )
 
-  val nameAgeSumMap: Map[String, Int] = ???
+  val nameAgeSumMap: Map[String, Int] =
+    users.groupMapReduce(_.firstName)(_.age)(_ + _)
 
   println(nameAgeSumMap)
 }
