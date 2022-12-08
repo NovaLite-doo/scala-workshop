@@ -9,11 +9,11 @@ package tasks.task5
   */
 
 class Calculate(numberOne: Int, numberTwo: Int) {
-  private val multiplier: Int = 2
-  def multiplySumByMultiplier: Int = ???
+  def multiplySumBy2: Int = ???
 }
 
-object Calculate extends App {
+
+object Main extends App {
   val calculate: Calculate = ???
-  println(calculate.multiplySumByMultiplier)
+  println(calculate.multiplySumBy2)
 }
