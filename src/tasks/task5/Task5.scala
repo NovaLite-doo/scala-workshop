@@ -9,7 +9,12 @@ package tasks.task5
   */
 
 class Calculate(numberOne: Int, numberTwo: Int) {
-  def multiplySumBy2: Int = ???
+  def multiplySumBy2: Int = (numberOne+numberTwo)*Calculate.multiplier
+}
+
+object Calculate {
+  private val multiplier = 2
+  def apply(numberOne: Int, numberTwo: Int): Calculate = new Calculate(numberOne, numberTwo)
 }
 
 
