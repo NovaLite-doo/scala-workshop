@@ -9,7 +9,7 @@ val setTestResourcesDirectory = Test / resourceDirectory := baseDirectory.value 
 
 lazy val root = (project in file("."))
   .settings(
-    name := "scala-workshop-2022",
+    name := "scala-workshop",
     setScalaSource,
     setTestSource,
     setResourcesDirectory,
