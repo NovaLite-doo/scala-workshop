@@ -12,7 +12,6 @@ class Calculate(numberOne: Int, numberTwo: Int) {
   def multiplySumBy2: Int = ???
 }
 
-
 object Main extends App {
   val calculate: Calculate = ???
   println(calculate.multiplySumBy2)

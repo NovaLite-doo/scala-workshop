@@ -1,19 +1,10 @@
 ThisBuild / organization := "rs.novalite"
-ThisBuild / scalaVersion := "2.13.10"
+ThisBuild / scalaVersion := "2.13.13"
 ThisBuild / scalafmtOnCompile := true
-
-val setScalaSource = Compile / scalaSource := baseDirectory.value / "src"
-val setTestSource = Test / scalaSource := baseDirectory.value / "test"
-val setResourcesDirectory = Compile / resourceDirectory := baseDirectory.value / "resources"
-val setTestResourcesDirectory = Test / resourceDirectory := baseDirectory.value / "test/resources"
 
 lazy val root = (project in file("."))
   .settings(
     name := "scala-workshop",
-    setScalaSource,
-    setTestSource,
-    setResourcesDirectory,
-    setTestResourcesDirectory,
     libraryDependencies ++= Seq(
       "com.typesafe.play" %% "play-json" % "2.9.3",
       "com.typesafe.play" %% "play-json-joda" % "2.9.3",
