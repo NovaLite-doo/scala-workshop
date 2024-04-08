@@ -1,21 +1,44 @@
 package tasks.task4
 
-/** For given list of users, calculate total age for each first name
-  */
-object Task4 extends App {
-  val users = List(
-    User("Bob", "Perry", 15),
-    User("James", "Freeman", 22),
-    User("Mary", "Hewitt", 20),
-    User("James", "Jordan", 10),
-    User("Bob", "Sims", 18),
-    User("James", "Matthews", 30)
-  )
+/** Create a logic to check if a User is a minor or an adult:
+ */
 
-  val nameAgeSumMap: Map[String, Int] =
-    users.groupMapReduce(_.firstName)(_.age)(_ + _)
+// Case class representing a User
+case class User(username: String, age: Int)
 
-  println(nameAgeSumMap)
+// Companion object for User class
+object User {
+  // Method to validate user's age
+  def isValid(user: User): Boolean = {
+    if (user.age >= 18) {
+      println(s"${user.username} is an adult.")
+      true
+    } else {
+      println(s"${user.username} is a minor.")
+      false
+    }
+  }
+
+  /*
+  //match case
+   def isValid(user: User): Boolean = user.age match {
+    case age if age >= 18 =>
+      println(s"${user.username} is an adult.")
+      true
+    case _ =>
+      println(s"${user.username} is a minor.")
+      false
+  }
+   */
 }
 
-case class User(firstName: String, lastName: String, age: Int)
+object Task4 extends App {
+
+  val user1 = User("Alice", 25)
+  val user2 = User("Bob", 16)
+
+  User.isValid(user1)
+  User.isValid(user2)
+
+}
+
