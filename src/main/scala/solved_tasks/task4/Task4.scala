@@ -1,4 +1,4 @@
-package tasks.task4
+package solved_tasks.task4
 
 /** Create a logic to check if a User is a minor or an adult:
   */
