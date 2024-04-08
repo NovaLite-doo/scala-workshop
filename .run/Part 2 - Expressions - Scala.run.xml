@@ -1,10 +1,10 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Part 4 - Option" type="Application" factoryName="Application" folderName="Examples">
-    <option name="MAIN_CLASS_NAME" value="examples.part4option.Main" />
+  <configuration default="false" name="Part 2 - Expressions - Scala" type="Application" factoryName="Application" folderName="Examples - Scala">
+    <option name="MAIN_CLASS_NAME" value="examples.part2expressions.Main" />
     <module name="scala-workshop" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="examples.part4option.*" />
+        <option name="PATTERN" value="examples.part2expressions.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
