@@ -11,6 +11,7 @@ lazy val root = (project in file("."))
       "joda-time" % "joda-time" % "2.10.8",
       "org.apache.commons" % "commons-lang3" % "3.12.0",
       "com.github.tototoshi" %% "scala-csv" % "1.3.10",
-      "org.scalatest" %% "scalatest" % "3.2.14" % Test
+      "org.scalatest" %% "scalatest" % "3.2.14" % Test,
+      "org.scala-lang" %% "toolkit" % "0.1.7"
     )
   )

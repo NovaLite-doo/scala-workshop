@@ -1,7 +1,7 @@
 package solved_tasks.task4
 
 /** Create a logic to check if a User is a minor or an adult:
- */
+  */
 
 // Case class representing a User
 case class User(username: String, age: Int)
