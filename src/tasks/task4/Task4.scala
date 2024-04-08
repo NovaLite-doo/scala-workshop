@@ -1,20 +1,15 @@
 package tasks.task4
 
-/** For given list of users, calculate total age for each first name
-  */
+/** Create a logic to check if a User is a minor or an adult:
+ */
+
 object Task4 extends App {
-  val users = List(
-    User("Bob", "Perry", 15),
-    User("James", "Freeman", 22),
-    User("Mary", "Hewitt", 20),
-    User("James", "Jordan", 10),
-    User("Bob", "Sims", 18),
-    User("James", "Matthews", 30)
-  )
+  /*
+  val user1 = User("Alice", 25)
+  val user2 = User("Bob", 16)
 
-  val nameAgeSumMap: Map[String, Int] = ???
-
-  println(nameAgeSumMap)
+  User.isValid(user1)
+  User.isValid(user2)
+   */
 }
 
-case class User(firstName: String, lastName: String, age: Int)
