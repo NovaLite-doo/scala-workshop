@@ -6,6 +6,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "scala-workshop",
     libraryDependencies ++= Seq(
-      "org.scala-lang" %% "toolkit" % "0.2.1"
+      "org.scala-lang" %% "toolkit" % "0.2.1",
+      "org.apache.commons" % "commons-lang3" % "3.14.0"
     )
   )
