@@ -12,7 +12,14 @@ object Task6 extends App {
     new User {}
   )
 
-  def greet(user: User): Unit = ???
+  def greet(user: User): Unit = user match {
+    case User.Guest()                           => println("Hello guest user")
+    case User.RegisteredUser(_, Some(fullName)) => println(s"Hello $fullName")
+    case User.RegisteredUser(username, None)    => println(s"Hello $username")
+    case User.Admin(username) =>
+      println(s"Hello $username, you are logged in as an admin user")
+    case _ => println("Hello unknown user")
+  }
 
   users.foreach(greet)
 }
