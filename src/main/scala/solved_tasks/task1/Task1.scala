@@ -5,6 +5,6 @@ package solved_tasks.task1
 object Task1 extends App {
   val numbers = List(1, 2, 3, 4)
   val letters = List('a', 'b', 'c')
-  val combinations = numbers.flatMap(n => letters.map(l => s"${n}${l}"))
+  val combinations = numbers.flatMap(n => letters.map(l => s"$n$l"))
   println(combinations)
 }
