@@ -15,7 +15,7 @@ import scala.concurrent.duration.DurationInt
   * <li>Numbers need to be larger than 0</li> <li>Numbers need to be lower than
   * 40</li> </ul> </li> <li>If the combination is correct print:
   * "Congratulations, you won!!!"</li> <li>If the combination is not correct
-  * print: "Wining combination was: ${winningCombination}. Better luck next
+  * print: "Winning combination was: ${winningCombination}. Better luck next
   * time."</li> </ol>
   */
 object TaskMain extends App {
