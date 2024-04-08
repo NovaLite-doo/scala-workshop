@@ -1,4 +1,4 @@
-package tasks.finalTask
+package solved_tasks.finalTask
 
 import scala.concurrent.{Await, ExecutionContext, Future}
 import scala.io.StdIn
@@ -41,13 +41,29 @@ object TaskMain extends App {
   println("Input your numbers(1-39) separated by whitespace: ")
   val usersCombination: Seq[Int] = {
     val inputString = StdIn.readLine()
-    ???
+    val splitString = inputString.trim.split("\\s+")
+    if (splitString.size != 7) {
+      throw new Exception("There needs to be 7 numbers")
+    } else {
+      val argsConvertedToInt = splitString.map(_.toInt)
+      if (argsConvertedToInt.exists(n => n > 39 || n < 1)) {
+        throw new Exception("Numbers need to be between 1 and 39")
+      } else {
+        argsConvertedToInt
+      }
+    }
   }
 
   Await.result(
     getWinningCombination
       .map {
-        ???
+        case winningCombination
+            if winningCombination.equals(usersCombination) =>
+          println("Congratulations, you won!!!")
+        case winningCombination =>
+          println(
+            s"Wining combination was: ${winningCombination.mkString("[", ", ", "]")}. Better luck next time."
+          )
       },
     1.minute
   )
