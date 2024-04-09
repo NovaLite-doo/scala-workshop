@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Task 4 - Scala" type="Application" factoryName="Application" folderName="Tasks - Scala">
+    <option name="MAIN_CLASS_NAME" value="tasks.task4.Task4" />
+    <module name="scala-workshop" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="tasks.task4.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
