@@ -1,4 +1,4 @@
-# scala-workshop-2022
+# scala-workshop-2024
 
 ## Running the project
 This project requires Java 1.8+.
